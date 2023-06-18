@@ -1,0 +1,19 @@
+[[source]]
+url = "https://pypi.org/simple"
+verify_ssl = true
+name = "pypi"
+
+[packages]
+optuna = "*"
+scikit-learn = "*"
+lightgbm = "*"
+numpy = "*"
+pandas = "*"
+lgbm-autotune = {editable = true, path = "."}
+
+[dev-packages]
+ipykernel = "*"
+
+[requires]
+python_version = "3.9"
+python_full_version = "3.9.7"
