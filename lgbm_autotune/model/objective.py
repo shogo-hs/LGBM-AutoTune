@@ -23,9 +23,7 @@ class Objective:
         tune_params = {
             "n_estimators": trial.suggest_int("n_estimators", 1, 10000),
             "num_leaves": trial.suggest_int("num_leaves", 2, 256),
-            "min_child_samples": trial.suggest_int(
-                "min_child_samples", 3, 200
-            ),
+            "min_child_samples": trial.suggest_int("min_child_samples", 3, 200),
             "max_depth": trial.suggest_int("max_depth", 1, 8),
             "learning_rate": trial.suggest_float("learning_rate", 0.01, 0.3),
         }
@@ -35,7 +33,6 @@ class Objective:
             **static_params,
         }
 
-        model = LGBMClassifier(**all_params)
         trial.set_user_attr("all_params", all_params)
 
         # 5-Fold Stratified CV
@@ -46,6 +43,8 @@ class Objective:
         models = []
 
         for train_index, valid_index in skf.split(self.X, self.y):
+            model = LGBMClassifier(**all_params)
+
             # データの分割
             X_train, X_valid = (
                 self.X.iloc[train_index],
