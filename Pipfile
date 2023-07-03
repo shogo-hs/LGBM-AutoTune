@@ -10,6 +10,8 @@ lightgbm = "*"
 numpy = "*"
 pandas = "*"
 lgbm-autotune = {editable = true, path = "."}
+plotly = "*"
+nbformat = "*"
 
 [dev-packages]
 ipykernel = "*"
